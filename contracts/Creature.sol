@@ -10,11 +10,11 @@ import "./ERC721Tradable.sol";
  */
 contract Creature is ERC721Tradable {
     constructor(address _proxyRegistryAddress)
-        ERC721Tradable("Creature", "OSC", _proxyRegistryAddress)
+        ERC721Tradable("HymanCollection", "HYM", _proxyRegistryAddress)
     {}
 
     function baseTokenURI() override public pure returns (string memory) {
-        return "https://creatures-api.opensea.io/api/creature/";
+        return "https://hyman-nft.herokuapp.com/api/token/";
     }
 
     function contractURI() public pure returns (string memory) {

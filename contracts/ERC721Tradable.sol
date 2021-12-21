@@ -57,6 +57,25 @@ abstract contract ERC721Tradable is ERC721, ContextMixin, NativeMetaTransaction,
         _safeMint(_to, currentTokenId);
     }
 
+    function getBalance() public view returns(uint) {
+        return address(this).balance;
+    }
+
+    function withdrawMoney() public onlyOwner {
+        address payable to = payable(msg.sender);
+        to.transfer(getBalance());
+    }
+
+    /**
+     * @dev Mints a token to an address with a tokenURI.
+     */
+    function mintCustomer() public payable {
+        require(msg.value == 0.1 ether,"Only chairperson can give right to vote.");
+        uint256 currentTokenId = _nextTokenId.current();
+        _nextTokenId.increment();
+        _safeMint(msg.sender, currentTokenId);
+    }
+
     /**
         @dev Returns the total tokens minted so far.
         1 is always subtracted from the Counter since it tracks the next available tokenId.

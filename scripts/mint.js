@@ -7,7 +7,7 @@ const FACTORY_CONTRACT_ADDRESS = process.env.FACTORY_CONTRACT_ADDRESS;
 const NFT_CONTRACT_ADDRESS = process.env.NFT_CONTRACT_ADDRESS;
 const OWNER_ADDRESS = process.env.OWNER_ADDRESS;
 const NETWORK = process.env.NETWORK;
-const NUM_CREATURES = 12;
+const NUM_CREATURES = 120;
 const NUM_LOOTBOXES = 4;
 const DEFAULT_OPTION_ID = 0;
 const LOOTBOX_OPTION_ID = 2;
@@ -64,7 +64,8 @@ async function main() {
     MNEMONIC,
     isInfura
       ? "https://" + network + ".infura.io/v3/" + NODE_API_KEY
-      : "https://eth-" + network + ".alchemyapi.io/v2/" + NODE_API_KEY
+      : "https://eth-" + network + ".alchemyapi.io/v2/" + NODE_API_KEY,
+    1
   );
   const web3Instance = new web3(provider);
 
